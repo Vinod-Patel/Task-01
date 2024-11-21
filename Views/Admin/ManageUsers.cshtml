@@ -1,0 +1,32 @@
+﻿@model List<Users>
+
+<div class="container">
+    <h2>Manage Users</h2>
+    <a href="#AddNewUsers" class="btn btn-success" data-toggle="modal" data-target="#userModal">Add New Users</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Is Admin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var users in Model)
+            {
+                <tr>
+                    <td>@users.Name</td>
+                    <td>@users.Email</td>
+                    <td>@users.Phone</td>
+                    <td>@users.IsAdmin</td>
+                    <td>
+                        <a href="@Url.Action("EditUser", "Admin", new { id = User })" class="btn btn-warning">Edit</a>
+                        <a href="@Url.Action("DeleteUser", "Admin", new { id = User })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
